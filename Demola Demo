@@ -1,0 +1,130 @@
+<! Generated in ChatGPT in dec-09-2024 and purely visual in nature. This code does not represent the final product or utilize any of its aactual features. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cold Type Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .prompt {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .input-box {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            color: #888;
+            font-style: italic;
+            cursor: not-allowed;
+        }
+        .generate-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .generate-btn:hover {
+            background-color: #45a049;
+        }
+        .answer-box {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .answer-box span {
+            font-size: 20px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .red-box {
+            color: red;
+        }
+        .yellow-box {
+            color: yellow;
+        }
+        .green-box {
+            color: green;
+        }
+        .hidden-details {
+            display: none;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+        }
+        .red-details {
+            background-color: #ffcccc;
+            color: red;
+        }
+        .yellow-details {
+            background-color: #ffff99;
+            color: orange;
+        }
+        .green-details {
+            background-color: #d4edda;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="prompt">Message fake AI</div>
+        <input type="text" id="symptomsInput" class="input-box" value="What type of cold is this? + list of symptoms" disabled>
+        <button class="generate-btn" onclick="generateAnswer()">Generate</button>
+
+        <div id="answerContainer" class="answer-box" style="display: none;">
+            <div id="coldType">
+                Flu (This can be dangerous, consult a doctor if you feel unwell)
+                <span class="red-box" onclick="toggleDetails('redDetails')">🔴</span>
+                <div id="redDetails" class="hidden-details red-details">
+                    This prediction is not made with medically tested models. Flu can be dangerous, so it's important to get a proper diagnosis.
+                </div>
+            </div>
+            <div id="cureType">
+                Common cures for colds: Rest, fluids, and over-the-counter medication (These methods work for many, but not all).
+                <span class="yellow-box" onclick="toggleDetails('yellowDetails')">⚠️</span>
+                <div id="yellowDetails" class="hidden-details yellow-details">
+                    These methods work for many but may not help everyone and don't address all possible illnesses that have symptoms similar to a flu.
+                </div>
+            </div>
+            <div id="healthContact">
+                Contact your nearest health center or call 116 117. This number connects you to the Finnish health services for non-urgent healthcare inquiries. You can get advice from healthcare professionals regarding your symptoms and determine whether further action is needed. (Verified information)
+                <span class="green-box" onclick="toggleDetails('greenDetails')">✅</span>
+                <div id="greenDetails" class="hidden-details green-details">
+                    This information is verified through official Finnish healthcare sources.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateAnswer() {
+            // Display the answer container when the user clicks "Generate"
+            document.getElementById('answerContainer').style.display = 'block';
+        }
+
+        function toggleDetails(detailId) {
+            // Toggle the display of detailed information and change its color when the user clicks on a colored box
+            var details = document.getElementById(detailId);
+            if (details.style.display === 'none' || details.style.display === '') {
+                details.style.display = 'block';
+            } else {
+                details.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
